@@ -1,0 +1,34 @@
+<app-divider>Template Refrence Variables</app-divider>
+
+<app-section>
+  <p>
+    Template reference variable is used to create a variable of any DOM Element
+    like P Tag, Div Tag, Input Element, Form Element and more. Which Can be
+    accessed anywhere in DOM.
+  </p>
+
+  <div class="dom-element">
+    <h6>Input Element</h6>
+    <input type="text" #myInput value="Hello" />
+    <p>Variable (#myInput): {{ myInput }}</p>
+    <p>Value (myInput.value): {{ myInput.value }}</p>
+  </div>
+
+  <div class="dom-element">
+    <h6>Paragraph Element</h6>
+    <p #myPara value="Hello">Hello There</p>
+    <p>Variable (#myPara) : {{ myPara }}</p>
+    <p>Textcontent (myPara.textContent): {{ myPara.textContent }}</p>
+  </div>
+
+  <div class="dom-element">
+    <h6>Form Element</h6>
+    <form action="#" #myForm>
+      <input type="text" value="Form Value" />
+    </form>
+    <p>Variable (#myForm) : {{ myForm }}</p>
+    <p>Textcontent (myForm.textContent): {{ myForm.textContent }}</p>
+  </div>
+
+  <button (click)="show()">Show</button>
+</app-section>

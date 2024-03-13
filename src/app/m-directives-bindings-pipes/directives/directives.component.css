@@ -1,0 +1,10 @@
+.ngInf {
+  background-color: rgb(220, 233, 233);
+  min-height: 120px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.blueText {
+  color: blue;
+}

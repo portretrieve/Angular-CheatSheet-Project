@@ -1,0 +1,135 @@
+<!-- @ViewChild to get access to DOM Elements -->
+
+<app-divider>@ViewChild</app-divider>
+<app-section>
+  <ul>
+    <li>
+      <p>
+        @ViewChild can be used to access the elements of the same component or a
+        child component using a Template Reference Variable.
+      </p>
+    </li>
+    <li>
+      <p>
+        @ViewChild can be used to access the child component from the HTML
+        template of same component using a Template Reference Variable. Once you
+        have acces to that child component, you will have access to it's
+        variables, methods etc.
+      </p>
+    </li>
+  </ul>
+</app-section>
+
+<app-section>
+  <p>
+    Here we have Access to H4 element using @ViewChild and set it's color to
+    RED.
+  </p>
+  <h4 #myH4>I am an H4.</h4>
+</app-section>
+
+<!-- @ViewChild to get access to Child Components -->
+
+<app-divider>
+  @ViewChild to get access to Child Components and use it's fields.
+</app-divider>
+
+<app-section>
+  <app-child #childComp> </app-child>
+
+  <div>
+    <p>
+      We have app-child component here which is given a Temp Ref Var
+      (#childComp). Using this variable and @ViewChild, we have access to it in
+      TS file and all it's fields and methods as shown below.
+    </p>
+    <div>Child Component Counter: {{ childComponent?.childCompCounter }}</div>
+    <div>
+      <button (click)="inc()">Increase Child Comp Counter</button>
+      <button (click)="dec()">Decrease Child Comp Counter</button>
+    </div>
+  </div>
+</app-section>
+
+<!-- Using @ViewChildren to access multiple Elements with same Temp Ref Var -->
+
+<app-divider>@ViewChildren</app-divider>
+<app-section>
+  <ul>
+    <li>
+      <p>
+        @ViewChildren can be used to access multiple elements with same Template
+        Reference Variable from HTML of the same component.
+      </p>
+    </li>
+    <li>
+      <p>
+        @ViewChildren can be used to access multiple Child-Components with same
+        Template Reference Variable from HTML of the same component.
+      </p>
+    </li>
+  </ul>
+</app-section>
+<app-section>
+  <p>
+    We are able to access both paragraphs here with @ViewChildren and set their
+    color Green. Both Paragraphs have same TRV (#myParagraph).
+  </p>
+  <p #myParagraph>I am 1st Paragraph.</p>
+  <p #myParagraph>I am 2nd Paragraph.</p>
+</app-section>
+
+<!-- @ContentChild and @ContentChildren -->
+
+<app-divider>@ContentChild and @ContentChildren</app-divider>
+
+<app-section>
+  <ul>
+    <li>
+      @ContentChild is used to access the projected element/content/data in
+      Child TS File for manipulation.
+    </li>
+    <li>
+      We need to give a TRV to projected content/data in PARENT comp itself
+      which will be used to access the element in Child Comp TS file.
+    </li>
+    <li>
+      @ContentChildren can be used for multiple elements projected with same
+      TRV.
+    </li>
+    <li>
+      We can send <strong>multiple ELEMENTS/DATA </strong>using CONTENT
+      PROJECTION and accept them at various places by using
+      <strong>select=".slot1"</strong>
+      property and giving it value of the class of projected content
+      <strong> (class="slot1")</strong> defined in parent component.
+    </li>
+  </ul>
+</app-section>
+
+<app-section>
+  <h5>
+    @ContentChild below will fecilitate access to only H5. Then we can change
+    it's color to GREEN in child component.
+  </h5>
+
+  <app-child>
+    <h5 class="slot1" #projectedH5>
+      I am H5. Green Color is coming from @ContentChild.
+    </h5>
+  </app-child>
+  <br />
+  <h5>
+    @ContentChildren below will fecilitate access to both H4s. Then we can
+    change their color to RED in child component.
+  </h5>
+
+  <app-child>
+    <h4 class="slot1" #projectedH4>
+      1st H4. Red Color is coming from @ContentChildren.
+    </h4>
+    <h4 class="slot2" #projectedH4>
+      2nd H4. Red Color is coming from @ContentChildren.
+    </h4>
+  </app-child>
+</app-section>

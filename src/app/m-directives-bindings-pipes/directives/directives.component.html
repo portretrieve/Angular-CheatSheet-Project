@@ -1,0 +1,130 @@
+<div class="container">
+  <!-- Structural Directives -->
+
+  <app-divider>Structural Directives</app-divider>
+  <h5>There are three built-in structural directives.</h5>
+  <ul>
+    <li>NgIf</li>
+    <li>NgFor</li>
+    <li>NgSwitch</li>
+  </ul>
+  <app-section>
+    <app-heading> *ngIf: </app-heading>
+    <h6>
+      *ngIf completly removes the element from DOM. While [hidden] attribute
+      binding just hids the element.
+    </h6>
+
+    <div class="ngInf">
+      <p *ngIf="showElement">
+        *ngIf = I will be displayed or removed from DOM using *ngInf on button
+        click which toggles showElement property true or false.
+      </p>
+
+      <p [hidden]="!showElement">
+        [hidden] = I am not be removed from DOM only hidden on button click
+        which toggles showElement property true or false. [hidden] is not a
+        directive.
+      </p>
+    </div>
+    <button (click)="showElement = !showElement">
+      Show Paragraph = {{ showElement }}
+    </button>
+    <app-imageholder
+      ><img src="../../../assets/images/ngIf.png" alt=""
+    /></app-imageholder>
+  </app-section>
+
+  <app-section>
+    <app-heading>NgFor</app-heading>
+    <h6>
+      *ngFor A structural directive that renders a template for each item in a
+      collection. The directive is placed on an element, which becomes the
+      parent of the cloned templates..
+    </h6>
+
+    <div class="ngInf">
+      <div *ngFor="let name of namesList; let i = index">
+        <p *ngIf="name.length > 10">{{ i + 1 }}: {{ name }}</p>
+      </div>
+    </div>
+
+    <button (click)="addNamesToList()">Show Names</button>
+
+    <app-imageholder>
+      <img src="../../../assets/images/ngfor.png" alt="" />
+    </app-imageholder>
+  </app-section>
+
+  <!-- Attribute Directives -->
+
+  <app-divider>Attribute Directives</app-divider>
+  <p>There are three most commonly used attribute directives.</p>
+  <ul>
+    <li>[ngStyle]</li>
+    <li>[ngClass]</li>
+    <li>[ngModel]</li>
+  </ul>
+
+  <!-- [ngStyle] -->
+  <app-section>
+    <app-heading>[ngStyle]</app-heading>
+    <h6>
+      NgStyle Adds and removes a set of HTML styles dynamically. In Example
+      below it's adding background-color.
+    </h6>
+
+    <div
+      class="ngInf"
+      [ngStyle]="{
+        'background-color': addStyle ? 'lightgreen' : 'lightcoral'
+      }"
+    >
+      <h3>Bcakground Color depends on "addStyle" variable value.</h3>
+      <h3>False = Red.</h3>
+      <h3>True = Green.</h3>
+    </div>
+
+    <button (click)="this.addStyle = !this.addStyle">
+      addStyle = {{ addStyle }}
+    </button>
+    <br /><br />
+    <app-imageholder
+      ><img src="../../../assets/images/ngStyle.png" alt=""
+    /></app-imageholder>
+  </app-section>
+
+  <!-- [ngClass] -->
+  <app-section>
+    <app-heading>[ngClass]</app-heading>
+    <h6>NgClass Adds and removes a set of CSS classes.</h6>
+
+    <div class="ngInf">
+      <h3 [ngClass]="{ blueText: addClass }">
+        Hello, My Text color will change with button click as a custom style
+        defined in css file (.blueText) will either be added or removed
+        depending on addClass value.
+      </h3>
+    </div>
+
+    <button (click)="addClass = !addClass">addClass = {{ addClass }}</button
+    ><br /><br />
+    <app-imageholder>
+      <img src="../../../assets/images/ngclass-1.png" alt="" />
+    </app-imageholder>
+  </app-section>
+
+  <!-- [ngModel] -->
+  <app-section>
+    <app-heading>[ngModel]</app-heading>
+    <h6>NgModel Adds two-way data binding to an HTML form element.</h6>
+    <div class="ngInf">
+      <input type="text" [(ngModel)]="defaultInputValue" />
+      <p>{{ defaultInputValue }}</p>
+      <p>As we can see input value is 2-way binded using ngModel directive.</p>
+    </div>
+    <app-imageholder
+      ><img src="../../../assets/images/ngModel.png" alt=""
+    /></app-imageholder>
+  </app-section>
+</div>

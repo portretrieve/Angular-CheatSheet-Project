@@ -1,0 +1,13 @@
+.col {
+  background-color: rgb(195, 216, 216);
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  border: 1px solid red;
+}
+
+.ng {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+}

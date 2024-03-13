@@ -1,0 +1,113 @@
+<div class="container">
+  <app-divider>Payment Form</app-divider>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Payee Name</label>
+      <input class="form-control" (input)="onNameChange($event)" />
+    </div>
+
+    <div class="col">
+      <label><b>Name</b></label>
+      <div>
+        <!-- Pipe (titlecase) converting the first letter of name to capital-->
+        {{ name | titlecase }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Payment Date</label>
+      <input type="date" class="form-control" (input)="onDateChange($event)" />
+    </div>
+
+    <div class="col">
+      <label><b>Date</b></label>
+      <div>
+        {{ entertedDate | date : "EEEE, MMMM d, y" }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Amount</label>
+      <input
+        class="form-control"
+        (input)="onAmountChange($any($event.target).value)"
+      />
+    </div>
+    <div class="col">
+      <label><b>Amount</b></label>
+      <div>
+        {{ amount | currency : "INR" : "symbol" : "1.1-2" }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Height</label>
+      <input
+        class="form-control"
+        (input)="onHeightChnage($any($event.target).value)"
+      />
+    </div>
+
+    <div class="col">
+      <label><b>Height</b></label>
+      <div>
+        {{ height | number : "1.0-2" }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Miles</label>
+      <input
+        class="form-control"
+        (input)="onMilesChnage($any($event.target).value)"
+      />
+    </div>
+
+    <div class="col">
+      <label><b>Kilometers</b></label>
+      <div>
+        {{ miles | convert : "km" }}
+      </div>
+    </div>
+  </div>
+
+  <div><br /></div>
+  <h3>a: number = 0.259</h3>
+  <h3>b: number = 1.3495</h3>
+  <div><br /></div>
+
+  <div class="container">
+    <!--output '$0.26'-->
+    <p>A: {{ a | currency }}</p>
+
+    <!--output 'CA$0.26'-->
+    <p>A: {{ a | currency : "CAD" }}</p>
+
+    <!--output 'CAD0.26'-->
+    <p>A: {{ a | currency : "CAD" : "code" }}</p>
+
+    <!--output 'CA$0,001.35'-->
+    <p>B: {{ b | currency : "CAD" : "symbol" : "4.2-2" }}</p>
+
+    <!--output '$0,001.35'-->
+    <p>B: {{ b | currency : "CAD" : "symbol-narrow" : "4.2-2" }}</p>
+
+    <!--output 'CLP1' because CLP has no cents-->
+    <p>B: {{ b | currency : "CLP" }}</p>
+  </div>
+
+  <div><br /></div>
+  <div>{{ car }}</div>
+  <div><br /></div>
+
+  <div>{{ car | json }}</div>
+</div>

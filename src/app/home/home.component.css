@@ -1,0 +1,12 @@
+h1 {
+  background-color: antiquewhite;
+  text-align: center;
+}
+
+a {
+  background-color: rgb(203, 219, 219);
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  max-width: 200px;
+}

@@ -1,0 +1,87 @@
+<!-- Sending Data to Child component 2 ways-->
+<!-- 1: Property Binding [items] -->
+<!-- 2: Content Projection -> app-divider and app-section Component -->
+<!-- 2: Content Projection 1st H4 and 2nd H4 - ( Red Color is coming from @ContentChildren.) -->
+<app-divider
+  >Parent Component Sending Data to Child using = Property Binding and Content
+  Projection</app-divider
+>
+
+<ul>
+  <li>
+    <p>
+      We can use <strong>@Input</strong> decorator to accept in
+      <strong>TS FILE</strong> of child component, the variable data sent from
+      parent component using <strong>PROPERTY BINDING</strong>.
+    </p>
+  </li>
+  <li>
+    <p>
+      We can use <strong>ng-content</strong> decorator to accept the
+      HTML/Another Component data in <strong>HTML / TEMPLATE </strong>sent from
+      parent component to child component using
+      <strong>CONTENT PROJECTION</strong>.
+    </p>
+  </li>
+  <li>
+    <p>
+      We can send multiple data using <strong>CONTENT PROJECTION</strong> and
+      accept them at various places by using
+      <strong>select=".slot1"</strong> property and giving it value of the class
+      of projected content <strong>(class="slot1")</strong> defined in parent
+      component.
+    </p>
+  </li>
+</ul>
+
+<app-product [items]="products" (notify)="acceptProductNamefromChild($event)">
+  <h6 class="slot1">
+    I am Child Component in Olive Color. I am receiving data in TS file
+    (Electronic Items). HTML file via content-projection (ng-content) which I am
+    also updating by accessing using @ContentChild/ren and changing it's color
+    to RED.
+  </h6>
+  <app-divider class="slot1" #projectedDivider
+    >List of Electronic Junk.</app-divider
+  >
+  <h5 class="slot1">
+    Click any product below to send the product name to parent component.
+  </h5>
+</app-product>
+
+<!-- <app-product [items]="foods">
+  <h6 class="slot1">
+    I am another Child Component (reused) in Olive Color. I am receiving data in
+    TS file (Food Items), in HTML file (app-divider) via content-projection
+    (ng-content).
+  </h6>
+  <app-divider class="slot1">List of Edibles</app-divider>
+</app-product> -->
+
+<app-divider
+  >Child Component Sending Data to Parent using = EventEmitter</app-divider
+>
+<div>
+  <h4>
+    The Product Name below in Input Field will come from Child Component once
+    you click any product above.
+  </h4>
+  <h4><input [value]="productName" /></h4>
+</div>
+<ul>
+  <li>
+    Step 1: Create an Emitter in Child Component TS file with Data Type you need
+    to send using generics (notify: EventEmitter string = new EventEmitter
+    string()) and annotate it with @Output.
+  </li>
+  <li>Now Emit Data using Emitter. this.notify.emit("itemName")</li>
+  <li>
+    Create a notify event in Parent HTML, which will aceept $event.
+    (notify)="acceptProductNamefromChild($event)"
+  </li>
+  <li>
+    Create the method now in parent TS file
+    (acceptProductNamefromChild(productName: string)) which will directly accept
+    the value. Don't need to use the event.target.value.
+  </li>
+</ul>
