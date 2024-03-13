@@ -11,19 +11,15 @@ export class ParentComponent {
   @ViewChild('myH4') myH4: any;
   @ViewChildren('myParagraph') paragraphs: any;
 
-  // Accessing child Component
-  @ViewChild('childComp') childComponent: ChildComponent;
-
   ngAfterViewInit() {
-    console.log(this.myH4);
-    console.log(this.paragraphs._results);
-
     this.myH4.nativeElement.style.color = 'red';
-
     this.paragraphs._results.forEach((element: any) => {
       element.nativeElement.style.color = 'green';
     });
   }
+
+  // Accessing child Component
+  @ViewChild('childComp') childComponent: ChildComponent;
 
   inc() {
     this.childComponent.increaseChildCompCounter();

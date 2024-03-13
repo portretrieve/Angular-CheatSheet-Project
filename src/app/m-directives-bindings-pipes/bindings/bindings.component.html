@@ -1,87 +1,83 @@
+<!-- Property Binding -->
 <app-divider>Property Binding</app-divider>
-
 <app-section>
   <ul>
     <li>
       Property Binding is done by seiting the element properties dynamically.
-      Like [value], [src], [alt], [hidden] and more.
+      Like [value], [src], [alt], [hidden], [disabled] and more.
     </li>
     <li>
       We can send data from parent to child component using Property Binding.
     </li>
   </ul>
-  <div class="container">
+  <app-imageholder>
     <img
       src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
       alt="Some Nature Image"
       height="200px"
     />
-
     <img [src]="imageUrl" [alt]="altString" height="200" />
-  </div>
-  <h5>
+  </app-imageholder>
+  <app-heading>
     In one of the the images above we are seeting the [src] and [alt] properties
     dynamically.
-  </h5>
+  </app-heading>
+  <app-imageholder
+    ><img src="../../../assets/images/prop-binding-1.png" alt=""
+  /></app-imageholder>
 </app-section>
 
 <!-- Event Binding -->
 <app-section>
   <app-divider>Event Binding</app-divider>
-
   <div>
-    <ul>
-      <li>Common Events: (change), (ngModelChange), (input), (click)</li>
-      <li></li>
-    </ul>
-
-    <label
-      >Enter Anything and See the Output.
-      (input)="onChangeLength($event)"</label
-    >
+    <app-heading>
+      Common Events: (change), (ngModelChange), (input), (click)
+    </app-heading>
     <br />
-    <input
-      class="input"
-      (input)="onChangeLength($event)"
-      placeholder="Type here"
-    />
-    <br />
-    <label for="">Output</label>
-    <br />
+    <label>Enter Anything and See the Output.</label><br />
+    <input class="input" (input)="onChangeLength($event)" /><br />
+    <label for="">Output</label><br />
     <input type="text" [value]="inputValue" />
   </div>
+
+  <app-imageholder
+    ><img src="../../../assets/images/event-binding-1.png" alt=""
+  /></app-imageholder>
+
+  <div>
+    <input
+      (change)="enablePasswordButton = !enablePasswordButton"
+      type="checkbox"
+    />
+    <label>Check/Uncheck to Enable/Disable Button Below</label>
+  </div>
+  <button [disabled]="!enablePasswordButton" (click)="onButtonClick()">
+    Generate Password
+  </button>
+  <input class="box" *ngIf="password" [value]="password" />
+  <app-imageholder
+    ><img src="../../../assets/images/event-binding-2.png" alt=""
+  /></app-imageholder>
 </app-section>
 
 <br />
 
-<div>
-  <label for="">
-    Check/Uncheck the checkbox to Enable or Disable Button Below to Generate
-    Password:
-  </label>
-  <input
-    (change)="enablePasswordButton = !enablePasswordButton"
-    type="checkbox"
-  />
-</div>
-<br />
-<button [disabled]="!enablePasswordButton" (click)="onButtonClick()">
-  Generate Password
-</button>
-<br />
-<div class="box" *ngIf="password">
-  <p>Your Password : {{ password }}</p>
-</div>
-<br />
+<!-- 2 Way Binding with ngModel -->
 <app-divider>2 Way Binding</app-divider>
-<div class="container">
-  <h5>
-    Two way Binding can be done using ngModel. We need to import FormsModule to
-    be able to use ngModule.
-  </h5>
-</div>
+<app-section>
+  <div class="container">
+    <h5>
+      Two way Binding can be done using ngModel. We need to import FormsModule
+      to be able to use ngModule.
+    </h5>
+  </div>
 
-<div>
-  <input type="text" [(ngModel)]="twoWayInputValue" />
-  <p>{{ twoWayInputValue }}</p>
-</div>
+  <div>
+    <input type="text" [(ngModel)]="twoWayInputValue" />
+    <p>{{ twoWayInputValue }}</p>
+  </div>
+  <app-imageholder>
+    <img src="../../../assets/images/2-way-binding.png" alt="" />
+  </app-imageholder>
+</app-section>

@@ -26,6 +26,12 @@
     RED.
   </p>
   <h4 #myH4>I am an H4.</h4>
+  <app-imageholder>
+    <img src="../../../assets/images/View/1.png" alt="" /><br /><br />
+    <p>in TS File</p>
+    <img src="../../../assets/images/View/2.png" alt="" /><br /><br />
+    <img src="../../../assets/images/View/3.png" alt="" />
+  </app-imageholder>
 </app-section>
 
 <!-- @ViewChild to get access to Child Components -->
@@ -35,20 +41,29 @@
 </app-divider>
 
 <app-section>
+  <p>
+    We have app-child component here in Green which is given a Temp Ref Var
+    (#childComp). Using this variable and @ViewChild, we have access to it in TS
+    file and all it's fields and methods as shown below.
+  </p>
   <app-child #childComp> </app-child>
 
   <div>
-    <p>
-      We have app-child component here which is given a Temp Ref Var
-      (#childComp). Using this variable and @ViewChild, we have access to it in
-      TS file and all it's fields and methods as shown below.
-    </p>
+    <br /><br />
     <div>Child Component Counter: {{ childComponent?.childCompCounter }}</div>
     <div>
       <button (click)="inc()">Increase Child Comp Counter</button>
       <button (click)="dec()">Decrease Child Comp Counter</button>
     </div>
   </div>
+
+  <app-imageholder>
+    <img src="../../../assets/images/View/4.png" alt="" /><br /><br />
+    <p>In TS File</p>
+    <img src="../../../assets/images/View/5.png" alt="" /><br /><br />
+    <p>Inside Child Comp TS file</p>
+    <img src="../../../assets/images/View/6.png" alt="" />
+  </app-imageholder>
 </app-section>
 
 <!-- Using @ViewChildren to access multiple Elements with same Temp Ref Var -->
@@ -77,6 +92,12 @@
   </p>
   <p #myParagraph>I am 1st Paragraph.</p>
   <p #myParagraph>I am 2nd Paragraph.</p>
+
+  <app-imageholder>
+    <img src="../../../assets/images/View/7.png" alt="" /><br /><br />
+    <h5>In TS File</h5>
+    <img src="../../../assets/images/View/8.png" alt="" /><br /><br />
+  </app-imageholder>
 </app-section>
 
 <!-- @ContentChild and @ContentChildren -->
@@ -107,6 +128,7 @@
   </ul>
 </app-section>
 
+<!-- @ContentChild -->
 <app-section>
   <h5>
     @ContentChild below will fecilitate access to only H5. Then we can change
@@ -119,6 +141,20 @@
     </h5>
   </app-child>
   <br />
+
+  <app-imageholder>
+    <p>In Parent HTML</p>
+    <img src="../../../assets/images/Content/1.png" alt="" /><br /><br />
+    <p>In Child HTML</p>
+    <img src="../../../assets/images/Content/2.png" alt="" /><br /><br />
+    <p>In Child TS File</p>
+    <img src="../../../assets/images/Content/3.png" alt="" /><br /><br />
+  </app-imageholder>
+</app-section>
+
+<!-- @ContentChildren -->
+
+<app-section>
   <h5>
     @ContentChildren below will fecilitate access to both H4s. Then we can
     change their color to RED in child component.
@@ -132,4 +168,13 @@
       2nd H4. Red Color is coming from @ContentChildren.
     </h4>
   </app-child>
+
+  <app-imageholder>
+    <p>In Parent HTML</p>
+    <img src="../../../assets/images/Content/4.png" alt="" /><br /><br />
+    <p>In Child HTML</p>
+    <img src="../../../assets/images/Content/2.png" alt="" /><br /><br />
+    <p>In Child TS File</p>
+    <img src="../../../assets/images/Content/5.png" alt="" /><br /><br />
+  </app-imageholder>
 </app-section>

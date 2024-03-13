@@ -1,34 +1,46 @@
 <app-divider>Template Refrence Variables</app-divider>
 
 <app-section>
-  <p>
-    Template reference variable is used to create a variable of any DOM Element
-    like P Tag, Div Tag, Input Element, Form Element and more. Which Can be
-    accessed anywhere in DOM.
-  </p>
+  <ul>
+    <li>
+      Template reference variable is used to create a variable of any DOM
+      Element like P Tag, Div Tag, Input Element, Form Element and more.
+    </li>
+    <li>These Elements then can be accessed anywhere in DOM using TRV.</li>
+    <li>
+      These Elements then can also be accessed anywhere in TS file using TRV and
+      @ViewChild, @ViewChildren.
+    </li>
+  </ul>
 
-  <div class="dom-element">
+  <app-section>
     <h6>Input Element</h6>
     <input type="text" #myInput value="Hello" />
     <p>Variable (#myInput): {{ myInput }}</p>
     <p>Value (myInput.value): {{ myInput.value }}</p>
-  </div>
+    <app-imageholder
+      ><img src="../../../assets/images/trv1.png" alt=""
+    /></app-imageholder>
+  </app-section>
 
-  <div class="dom-element">
+  <app-section>
     <h6>Paragraph Element</h6>
     <p #myPara value="Hello">Hello There</p>
     <p>Variable (#myPara) : {{ myPara }}</p>
     <p>Textcontent (myPara.textContent): {{ myPara.textContent }}</p>
-  </div>
+    <app-imageholder
+      ><img src="../../../assets/images/trv2.png" alt=""
+    /></app-imageholder>
+  </app-section>
 
-  <div class="dom-element">
+  <app-section>
     <h6>Form Element</h6>
     <form action="#" #myForm>
       <input type="text" value="Form Value" />
     </form>
     <p>Variable (#myForm) : {{ myForm }}</p>
-    <p>Textcontent (myForm.textContent): {{ myForm.textContent }}</p>
-  </div>
-
-  <button (click)="show()">Show</button>
+    <app-imageholder
+      ><img src="../../../assets/images/trv3.png" alt=""
+    /></app-imageholder>
+  </app-section>
 </app-section>
