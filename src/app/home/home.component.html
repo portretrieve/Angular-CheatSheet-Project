@@ -9,4 +9,16 @@
     <a class="nav-item nav-link" routerLink="/bind/temp">Temp-Ref-Var</a>
     <a class="nav-item nav-link" routerLink="/contact">Contact</a>
   </div>
+
+  <h1>
+    You can Login by using "admin" as username and password or click the button
+    below to login automatically. You won't be able to access the pages without
+    login.
+  </h1>
+  <h1>Only Contact Page is accessible after login</h1>
+  <div class="container">
+    <button (click)="autoLoginAndAccess()">
+      <h5>Login Without Entering Username and Password for Quick Access</h5>
+    </button>
+  </div>
 </div>

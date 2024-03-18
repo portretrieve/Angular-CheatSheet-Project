@@ -3,7 +3,7 @@
 <div class="content">
   <!-- Content Projection using <ng-content></ng-content> -->
   <ng-content select=".slot1"></ng-content>
-  <ol class="list-group" *ngFor="let item of items">
+  <ol class="list-group" *ngFor="let item of electronics">
     <li
       class="list-group-item d-flex justify-content-between align-items-start"
       (click)="productClicked(item.name)"

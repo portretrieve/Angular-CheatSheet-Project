@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { routeGaurdGuard } from './Gaurds/route-gaurd.guard';
+import { Observable } from 'rxjs';
+import { LearnObservableComponent } from './learn-observable/learn-observable.component';
 
 const routes: Routes = [
   {
@@ -14,8 +19,23 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'obs',
+    component: LearnObservableComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
+    canActivate: [routeGaurdGuard],
+  },
+
+  {
     path: 'contact',
     component: ContactComponent,
+    canActivate: [routeGaurdGuard],
   },
   {
     path: 'bind',
@@ -23,6 +43,7 @@ const routes: Routes = [
       import(
         './m-directives-bindings-pipes/m-directives-bindings-pipes.module'
       ).then((module) => module.MDirectivesBindingsPipesModule),
+    canActivate: [routeGaurdGuard],
   },
   {
     path: 'parent-child',
@@ -30,6 +51,7 @@ const routes: Routes = [
       import(
         './m-view-child-ren-content-child-ren/m-view-child-ren-content-child-ren.module'
       ).then((module) => module.MViewChildRenContentChildRenModule),
+    canActivate: [routeGaurdGuard],
   },
   {
     path: 'parent-child-data-transfer',
@@ -37,7 +59,17 @@ const routes: Routes = [
       import(
         './m-input-output-data-transfer/m-input-output-data-transfer.module'
       ).then((module) => module.MInputOutputDataTransferModule),
+    canActivate: [routeGaurdGuard],
   },
+  {
+    path: 'lifecycle',
+    loadChildren: () =>
+      import('./m-component-lifecycle/m-component-lifecycle.module').then(
+        (module) => module.MComponentLifecycleModule
+      ),
+    canActivate: [routeGaurdGuard],
+  },
+
   {
     path: '**',
     component: NotFoundComponent,

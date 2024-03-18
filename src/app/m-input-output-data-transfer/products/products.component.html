@@ -34,40 +34,34 @@
   </li>
 </ul>
 
-<app-product [items]="products" (notify)="acceptProductNamefromChild($event)">
+<app-product [items]="products">
   <h6 class="slot1">
-    I am Child Component in Olive Color. I am receiving data in TS file
-    (Electronic Items). HTML file via content-projection (ng-content) which I am
-    also updating by accessing using @ContentChild/ren and changing it's color
-    to RED.
+    I am Product (Child) Component inside Products Comp (Parent). I am receiving
+    data (Electronic Items) in my TS file, ng-content via content-projection
+    which is also being updated by accessing using @ContentChild/ren and
+    changing it's color to RED.
   </h6>
-  <app-divider class="slot1" #projectedDivider
-    >List of Electronic Junk.</app-divider
-  >
-  <h5 class="slot1">
-    Click any product below to send the product name to parent component.
-  </h5>
+  <app-divider class="slot1">List of Electronic Junk.</app-divider>
+
+  <app-imageholder class="slot2">
+    <p>Data in Products (Parent) TS file</p>
+    <img src="../../../assets/images/InputOutput/1.png" alt="" /><br /><br />
+    <p>
+      Data Transfer using Property Binding [items] in Products (Parent) HTML
+      file.
+    </p>
+    <img src="../../../assets/images/InputOutput/2.png" alt="" /><br /><br />
+    <p>Data being received in Product (Child) TS file.</p>
+    <img src="../../../assets/images/InputOutput/3.png" alt="" /><br /><br />
+    <p>Finally Data being used in Product (Child) HTML file.</p>
+    <img src="../../../assets/images/InputOutput/4.png" alt="" /><br /><br />
+  </app-imageholder>
 </app-product>
 
-<!-- <app-product [items]="foods">
-  <h6 class="slot1">
-    I am another Child Component (reused) in Olive Color. I am receiving data in
-    TS file (Food Items), in HTML file (app-divider) via content-projection
-    (ng-content).
-  </h6>
-  <app-divider class="slot1">List of Edibles</app-divider>
-</app-product> -->
-
+<br /><br /><br />
 <app-divider
   >Child Component Sending Data to Parent using = EventEmitter</app-divider
 >
-<div>
-  <h4>
-    The Product Name below in Input Field will come from Child Component once
-    you click any product above.
-  </h4>
-  <h4><input [value]="productName" /></h4>
-</div>
 <ul>
   <li>
     Step 1: Create an Emitter in Child Component TS file with Data Type you need
@@ -85,3 +79,42 @@
     the value. Don't need to use the event.target.value.
   </li>
 </ul>
+<app-product [items]="products" (emitter)="acceptProductNamefromChild($event)">
+  <app-heading class="slot2">
+    Click any product above to send the product name from child to parent
+    component.
+  </app-heading>
+</app-product>
+
+<div>
+  <h4>
+    The Product Name below in Input Field will come from Child Component once
+    you click any product above.
+  </h4>
+  <h4><input [value]="productName" /></h4>
+</div>
+
+<app-section>
+  <app-imageholder>
+    <p>
+      Inside Child (Product) HTML there is a click event to capture product
+      name.
+    </p>
+    <img src="../../../assets/images/InputOutput/4.png" alt="" /><br /><br />
+    <p>
+      Inside (Child) Product TS: product name is captured and emitted using
+      emitter.
+    </p>
+    <img src="../../../assets/images/InputOutput/5.png" alt="" /><br /><br />
+    <p>
+      Inside Parent (Products) HTML: emmiter sends data to Products TS in the
+      form of $event.
+    </p>
+    <img src="../../../assets/images/InputOutput/6.png" alt="" /><br /><br />
+    <p>
+      Finally, inside (Parent) Products TS: product name is receieved and saved
+      in a variable.
+    </p>
+    <img src="../../../assets/images/InputOutput/7.png" alt="" /><br /><br />
+  </app-imageholder>
+</app-section>

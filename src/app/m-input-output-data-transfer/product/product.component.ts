@@ -17,13 +17,13 @@ import {
 })
 export class ProductComponent {
   // Incoming Data from Parent
-  @Input('items') items: any;
+  @Input('items') electronics: any;
 
   // Sending Data Back to Parent
   @Output()
-  notify: EventEmitter<string> = new EventEmitter<string>();
+  emitter: EventEmitter<string> = new EventEmitter<string>();
 
   productClicked(itemName: string) {
-    this.notify.emit(itemName);
+    this.emitter.emit(itemName);
   }
 }

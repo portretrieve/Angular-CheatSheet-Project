@@ -1,0 +1,22 @@
+<div class="life">
+  <h4>I am LifeCycle component in Light Red</h4>
+  <app-divider>Angular Component Lifecycle</app-divider>
+
+  <app-section>
+    <app-imageholder
+      ><img src="../../../assets/images/lifecycle.png" alt=""
+    /></app-imageholder>
+  </app-section>
+
+  <app-section>
+    <div><ng-content></ng-content></div>
+    <div>{{ incomingMessage }}</div>
+    <div>{{ myArray[0] }}</div>
+  </app-section>
+
+  <app-section>
+    <ul *ngFor="let item of notifications; let i = index">
+      <li>{{ i + 1 }} : {{ item }}</li>
+    </ul>
+  </app-section>
+</div>

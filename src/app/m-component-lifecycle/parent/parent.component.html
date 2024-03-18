@@ -1,0 +1,15 @@
+<div class="parent">
+  <h1>I am Parent in Light Green</h1>
+
+  <app-lifecycle [message]="message" [array]="array">
+    <p>Projected content from Parent Component.</p>
+  </app-lifecycle>
+
+  <div>
+    <button (click)="button1Clicked()">Click Me for Primitive Change.</button>
+  </div>
+
+  <div>
+    <button (click)="button2Clicked()">Click Me for array Change.</button>
+  </div>
+</div>

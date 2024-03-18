@@ -2,20 +2,70 @@
   <nav id="hamburger" class="navbar sticky-top navbar-expand-lg navbar-light">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/login"
+          >Login</a
+        >
+
         <a class="nav-item nav-link" routerLink="/home">Home</a>
-        <a class="nav-item nav-link" routerLink="/bind">Binding</a>
-        <a class="nav-item nav-link" routerLink="/bind/directives"
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/bind"
+          >Binding</a
+        >
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/bind/directives"
           >Directives</a
         >
-        <a class="nav-item nav-link" routerLink="/bind/pipes">Pipes</a>
-        <a class="nav-item nav-link" routerLink="/bind/temp">Temp-Ref-Var</a>
-        <a class="nav-item nav-link" routerLink="/parent-child/parent"
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/bind/pipes"
+          >Pipes</a
+        >
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/bind/temp"
+          >T-R-V</a
+        >
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/parent-child/parent"
           >ViewChild/ren - ContentChild/ren
         </a>
-        <a class="nav-item nav-link" routerLink="/parent-child-data-transfer/products"
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/parent-child-data-transfer/products"
           >Products ( @Input - @Output )
         </a>
-    <a class="nav-item nav-link" routerLink="/contact">Contact</a>
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/lifecycle/life-parent"
+          >Comp LifeCycle Parent</a
+        >
+
+        <a
+          *ngIf="hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/contact"
+          >Contact</a
+        >
+        <a
+          *ngIf="hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/logout"
+          >Logout</a
+        >
+        <a class="nav-item nav-link" routerLink="/obs">Observable</a>
       </div>
     </div>
   </nav>
