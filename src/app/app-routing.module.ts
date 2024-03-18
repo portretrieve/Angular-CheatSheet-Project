@@ -43,7 +43,6 @@ const routes: Routes = [
       import(
         './m-directives-bindings-pipes/m-directives-bindings-pipes.module'
       ).then((module) => module.MDirectivesBindingsPipesModule),
-    canActivate: [routeGaurdGuard],
   },
   {
     path: 'parent-child',
@@ -51,7 +50,6 @@ const routes: Routes = [
       import(
         './m-view-child-ren-content-child-ren/m-view-child-ren-content-child-ren.module'
       ).then((module) => module.MViewChildRenContentChildRenModule),
-    canActivate: [routeGaurdGuard],
   },
   {
     path: 'parent-child-data-transfer',
@@ -59,7 +57,6 @@ const routes: Routes = [
       import(
         './m-input-output-data-transfer/m-input-output-data-transfer.module'
       ).then((module) => module.MInputOutputDataTransferModule),
-    canActivate: [routeGaurdGuard],
   },
   {
     path: 'lifecycle',
@@ -67,7 +64,6 @@ const routes: Routes = [
       import('./m-component-lifecycle/m-component-lifecycle.module').then(
         (module) => module.MComponentLifecycleModule
       ),
-    canActivate: [routeGaurdGuard],
   },
 
   {
