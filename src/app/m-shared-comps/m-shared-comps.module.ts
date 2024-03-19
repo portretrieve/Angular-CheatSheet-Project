@@ -4,6 +4,7 @@ import { DividerComponent } from './divider/divider.component';
 import { SectionComponent } from './section/section.component';
 import { ImageholderComponent } from './imageholder/imageholder.component';
 import { HeadingComponent } from './heading/heading.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { HeadingComponent } from './heading/heading.component';
     SectionComponent,
     ImageholderComponent,
     HeadingComponent,
+    ButtonComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -18,6 +20,7 @@ import { HeadingComponent } from './heading/heading.component';
     SectionComponent,
     ImageholderComponent,
     HeadingComponent,
+    ButtonComponent,
   ],
 })
 export class MSharedCompsModule {}

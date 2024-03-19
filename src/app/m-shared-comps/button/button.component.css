@@ -1,0 +1,14 @@
+button {
+  background-color: rgb(138, 72, 77);
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: larger;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+button:disabled {
+  background-color: rgb(156, 113, 116);
+}

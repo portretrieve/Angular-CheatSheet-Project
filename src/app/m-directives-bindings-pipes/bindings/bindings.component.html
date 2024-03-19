@@ -52,9 +52,9 @@
     />
     <label>Check/Uncheck to Enable/Disable Button Below</label>
   </div>
-  <button [disabled]="!enablePasswordButton" (click)="onButtonClick()">
+  <app-button [disabled]="!enablePasswordButton" (click)="onButtonClick()">
     Generate Password
-  </button>
+  </app-button>
   <input class="box" *ngIf="password" [value]="password" />
   <app-imageholder
     ><img src="../../../assets/images/event-binding-2.png" alt=""
