@@ -1,6 +1,14 @@
-div {
+.outer {
   text-align: center;
-  font-size: large;
-  font-weight: bold;
-  color: blue;
+  font-size: larger;
+}
+
+.inner {
+  background-color: brown;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
 }

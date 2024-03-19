@@ -1,1 +1,36 @@
-<app-heading>Observables!</app-heading>
+<app-divider>Observables!</app-divider>
+
+<!-- Dealing with Observable Sending Data Once -->
+<app-section>
+  <app-heading
+    >Fetching Data from JSON PlaceHolder API - Observable Sending Data
+    Once</app-heading
+  ><br /><br /><br />
+
+  <div>
+    <app-button (click)="fetchPosts()"
+      >Fetch Posts from JSONPlaceholder</app-button
+    ><br />
+    <app-button (click)="reset()">Reset Posts</app-button>
+  </div>
+
+  <ul class="list-group" *ngFor="let post of postsArray">
+    <li class="list-group-item">{{ post.id }} : {{ post.title }}</li>
+  </ul>
+</app-section>
+
+<!-- Dealing with Observable Streaming Data -->
+<app-section>
+  <app-heading>Number Streaming Observable</app-heading>
+  <div>
+    <app-button (click)="startNumberStream()"
+      >Start the Number Stream</app-button
+    >
+  </div>
+  <input type="text" [(ngModel)]="streamingNumber" />
+  <div>
+    <app-button (click)="stopNumberStream()"
+      >Unsubscribe (Strop Number Stream)!</app-button
+    >
+  </div>
+</app-section>

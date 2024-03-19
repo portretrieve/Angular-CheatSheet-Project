@@ -16,6 +16,6 @@ export class ObservableDataService {
   }
 
   getStreamOfNumbersObservable(): Observable<Number> {
-    return interval(1);
+    return interval(1000);
   }
 }
