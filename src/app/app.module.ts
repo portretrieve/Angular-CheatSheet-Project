@@ -10,10 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MSharedCompsModule } from './m-shared-comps/m-shared-comps.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { LearnObservableComponent } from './learn-observable/learn-observable.component';
+import { AuthTokenInterceptor } from './Interceptors/auth-token.interceptor';
+import { JustAnotherInterceptor } from './Interceptors/just-another.interceptor';
+import { ResponseInterceptor } from './Interceptors/response.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,23 @@ import { LearnObservableComponent } from './learn-observable/learn-observable.co
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JustAnotherInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResponseInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
