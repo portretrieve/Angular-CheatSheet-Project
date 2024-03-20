@@ -1,0 +1,22 @@
+<app-divider
+  >I am Parent Here. Routing between different child components within me.
+</app-divider>
+
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/childrenRoutingWithin">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/childrenRoutingWithin/child1">Child 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/childrenRoutingWithin/child2">Child 2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/childrenRoutingWithin/child3">Child 3</a>
+  </li>
+</ul>
+
+<app-section>
+  <router-outlet></router-outlet>
+</app-section>

@@ -46,13 +46,24 @@
           routerLink="/parent-child-data-transfer/products"
           >Products ( @Input - @Output )
         </a>
+      </div>
+    </div>
+  </nav>
+  <nav id="hamburger" class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
         <a
           *ngIf="!hardCodedAuthService.isUserLoggedIn()"
           class="nav-item nav-link"
           routerLink="/lifecycle/life-parent"
           >Comp LifeCycle Parent</a
         >
-
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/childrenRoutingWithin"
+          >Children-Routing-Within</a
+        >
         <a
           *ngIf="hardCodedAuthService.isUserLoggedIn()"
           class="nav-item nav-link"

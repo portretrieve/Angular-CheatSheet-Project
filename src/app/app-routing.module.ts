@@ -65,7 +65,13 @@ const routes: Routes = [
         (module) => module.MComponentLifecycleModule
       ),
   },
-
+  {
+    path: 'childrenRoutingWithin',
+    loadChildren: () =>
+      import(
+        './m-routing-within-component/m-routing-within-component.module'
+      ).then((module) => module.MRoutingWithinComponentModule),
+  },
   {
     path: '**',
     component: NotFoundComponent,
