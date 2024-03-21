@@ -73,6 +73,11 @@ const routes: Routes = [
       ).then((module) => module.MRoutingWithinComponentModule),
   },
   {
+    path: 'form',
+    loadChildren: () =>
+      import('./m-forms/m-forms.module').then((module) => module.MFormsModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },

@@ -65,6 +65,24 @@
           >Children-Routing-Within</a
         >
         <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/form/temp"
+          >T-D-Form</a
+        >
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/form/reactive"
+          >Reactive Form</a
+        >
+        <a
+          *ngIf="!hardCodedAuthService.isUserLoggedIn()"
+          class="nav-item nav-link"
+          routerLink="/childrenRoutingWithin"
+          >Children-Routing-Within</a
+        >
+        <a
           *ngIf="hardCodedAuthService.isUserLoggedIn()"
           class="nav-item nav-link"
           routerLink="/contact"
